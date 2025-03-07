@@ -1,8 +1,8 @@
 import express from "express";
 import {
   onboarding,
-  sendVerifyOtp,
   verifyEmail,
+  sendVerifyOtp,
   login,
   logout,
 } from "../controllers/auth.controller.js";
@@ -10,8 +10,8 @@ import {
 const router = express.Router();
 
 router.post("/onboarding", onboarding);
-router.post("/send-verify-otp", sendVerifyOtp);
 router.post("/verify-email", verifyEmail);
+router.post("/send-verify-otp", sendVerifyOtp);
 router.post("/login", login);
 router.get("/logout", logout);
 
