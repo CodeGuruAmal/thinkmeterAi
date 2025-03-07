@@ -1,6 +1,6 @@
-import express from "express";
+import mongoose from "mongoose";
 
-const userSchema = new express.Schema(
+const userSchema = new mongoose.Schema(
   {
     name: { type: String },
     email: {
@@ -12,20 +12,20 @@ const userSchema = new express.Schema(
       type: String,
       required: true,
     },
+    isVerified: {
+      type: Boolean,
+      default: false,
+    },
     verifyOtp: {
-      type: Number,
+      type: String,
       default: 0,
     },
     verifyOtpExpires: {
       type: Date,
       default: 0,
     },
-    isVerified: {
-      type: Boolean,
-      default: false,
-    },
     forgotPasswordOtp: {
-      type: Number,
+      type: String,
       default: 0,
     },
     forgotPasswordOtpExpires: {
@@ -36,6 +36,6 @@ const userSchema = new express.Schema(
   { timestamps: true }
 );
 
-const User = express.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 
 export default User;
